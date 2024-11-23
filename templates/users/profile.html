@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+{% extends "recipes/base.html" %}
+
+    {% block title %} 
+      {% if title %}
+        <title>{{title}}</title>
+      {% else %}
+        <title>Профиль</title>
+      {% endif %}
+    {% endblock %}
+
+{% block content %}
+
+<div class="card text-center">
+  <div class="card-header">
+    Уведомление
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Добро пожаловать, {{ user.username}}</h5>
+    <p class="card-text">
+        {% if user.email %}
+            Email: {{ user.email }}
+        {% else %}
+            Не указана почта
+        {% endif %}
+    </p>
+    <a href="{% url 'recipes:home' %}" class="btn btn-primary">Назад к рецептам</a>
+  </div>
+  <div class="card-footer text-muted">
+    Сайт находится в разработке
+  </div>
+</div>
+
+{% endblock content %}

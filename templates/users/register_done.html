@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+{% extends "recipes/base.html" %}
+
+{% block title %} 
+      {% if title %}
+        <title>{{title}}</title>
+      {% else %}
+        <title>Регистрация</title>
+      {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h1>Привет, {{ new_user.first_name }}!</h1>
+  <p>
+    Ваш аккаунт успешно создан. <a href="{% url 'login' %}">Войти в систему</a>.
+  </p>
+{% endblock %}

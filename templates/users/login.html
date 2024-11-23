@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+{% extends "recipes/base.html" %}
+
+{% block title %} 
+      {% if title %}
+        <title>{{title}}</title>
+      {% else %}
+        <title>Авторизация</title>
+      {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <p>Используйте следующую форму для входа в систему:</p>
+  <form method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Войти"></p>
+  </form>
+{% endblock %}

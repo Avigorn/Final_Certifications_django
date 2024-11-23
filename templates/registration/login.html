@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+{% extends "recipes/base.html" %}
+
+{% block title %} 
+      {% if title %}
+        <title>{{title}}</title>
+      {% else %}
+        <title>Авторизация</title>
+      {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if form.errors %}
+    <p>
+        Ваше имя пользователя и пароль не совпали.
+        Пожалуйста, попробуйте еще раз.
+    </p>
+    {% else %}
+        <p>Введите свои данные для авторизации</p>
+    {% endif %}
+    <div class="login-form">
+    <form action="{% url 'login' %}" method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <p><input type="submit" value="Войти"></p>
+    </form>
+    </div>
+{% endblock %}

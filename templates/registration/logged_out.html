@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+{% extends "recipes/base.html" %}
+
+{% block title %} 
+      {% if title %}
+        <title>{{title}}</title>
+      {% else %}
+        <title>Выход</title>
+      {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="login-form">
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+    </div>
+{% endblock %}
+

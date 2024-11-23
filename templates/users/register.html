@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% extends "recipes/base.html" %}
+
+{% block title %} 
+      {% if title %}
+        <title>{{title}}</title>
+      {% else %}
+        <title>Регистрация</title>
+      {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h1>Заполните форму ниже</h1>
+  <form method="post">
+    {{ user_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Зарегистрироваться"></p>
+  </form>
+{% endblock %}
