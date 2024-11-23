@@ -119,9 +119,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
+STATIC_ROOT = '/home/avigorn/avigorn.pythonanywhere.com/static'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    '/home/avigorn/avigorn.pythonanywhere.com/my_app/static',
+    '/home/avigorn/avigorn.pythonanywhere.com/another_app/static',
 ]
 
 # Default primary key field type
